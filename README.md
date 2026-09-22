@@ -63,7 +63,7 @@ Tambahkan screenshot dashboard kamu di sini, contoh:
 2. Buka dengan Power BI Desktop (gratis di Microsoft Store)
 
 **Versi web interaktif:**
-1. File `dashboard.html` bersifat *self-contained* — tinggal buka langsung di browser
+1. File `Index.html` bersifat *self-contained* — tinggal buka langsung di browser
 2. Untuk host publik gratis lewat GitHub Pages: masuk ke **Settings → Pages** di repo ini, pilih branch `main` dan folder root, lalu akses di `https://<username>.github.io/<nama-repo>/dashboard.html`
 
 ## 🙌 Kredit
