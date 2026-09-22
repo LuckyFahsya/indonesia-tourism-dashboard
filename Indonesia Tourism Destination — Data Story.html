@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indonesia Tourism Destination — Analisis Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #10312F;
+    --teal-deep: #0F6674;
+    --teal: #14919B;
+    --mint: #45C4B0;
+    --sand: #F2A65A;
+    --coral: #E4572E;
+    --bg: #F6F8F7;
+    --surface: #FFFFFF;
+    --line: #DEE9E7;
+    --text-soft: #4A5D5B;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #EAF3F1;
+      --bg: #0B1F1E;
+      --surface: #102927;
+      --line: #1E3A37;
+      --text-soft: #A9C2BE;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #EAF3F1;
+    --bg: #0B1F1E;
+    --surface: #102927;
+    --line: #1E3A37;
+    --text-soft: #A9C2BE;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Work Sans", -apple-system, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+  header.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 0 0;
+  }
+  .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .brand span { color: var(--teal); }
+  nav.top a { color: var(--text-soft); text-decoration: none; font-size: 0.9rem; margin-left: 24px; }
+  nav.top a:hover { color: var(--teal-deep); }
+
+  /* Hero */
+  .hero { padding: 64px 0 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; }
+  .hero h1 {
+    font-family: "Fraunces", serif; font-weight: 500; font-size: clamp(2rem, 4.2vw, 3.1rem);
+    line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 18px;
+    max-width: 15ch;
+  }
+  .hero p { color: var(--text-soft); font-size: 1.02rem; line-height: 1.6; max-width: 46ch; margin: 0; }
+  .hero-stat { text-align: right; }
+  .hero-stat .num { font-family: "Fraunces", serif; font-weight: 500; font-size: clamp(3.5rem, 9vw, 6.2rem); line-height: 0.9; color: var(--teal-deep); }
+  .hero-stat .lbl { color: var(--text-soft); font-size: 0.95rem; margin-top: 6px; }
+
+  /* Stat strip */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    margin: 8px 0 56px;
+  }
+  .stat { background: var(--surface); padding: 22px 20px; }
+  .stat .v { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.9rem; color: var(--ink); }
+  .stat .k { color: var(--text-soft); font-size: 0.85rem; margin-top: 4px; }
+
+  section { padding: 8px 0 56px; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+  h2 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.5rem; margin: 40px 0 6px; }
+  .section-note { color: var(--text-soft); font-size: 0.95rem; margin: 0 0 24px; max-width: 60ch; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 6px; margin-bottom: 20px; }
+  .tab-btn {
+    font-family: "Work Sans", sans-serif; font-size: 0.88rem; font-weight: 500;
+    padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--surface); color: var(--text-soft); cursor: pointer;
+  }
+  .tab-btn.active { background: var(--teal-deep); border-color: var(--teal-deep); color: #fff; }
+
+  .chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
+  .chart-canvas-wrap { height: 320px; }
+  .detail-line { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: 0.92rem; min-height: 1.4em; }
+  .detail-line b { color: var(--ink); }
+
+  /* Insights */
+  .insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .insight { padding: 20px 0 0; border-top: 2px solid var(--mint); }
+  .insight h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.05rem; margin: 0 0 8px; }
+  .insight p { color: var(--text-soft); font-size: 0.92rem; line-height: 1.55; margin: 0; }
+
+  /* Methodology */
+  .method-list { display: grid; gap: 14px; margin-top: 20px; }
+  .method-row { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .method-row:first-child { border-top: none; }
+  .method-row .m-label { color: var(--teal-deep); font-size: 0.85rem; font-weight: 600; }
+  .method-row .m-val { color: var(--ink); font-size: 0.95rem; line-height: 1.5; }
+  .method-row a { color: var(--teal-deep); }
+
+  footer { padding: 32px 0 48px; color: var(--text-soft); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer a { color: var(--teal-deep); text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-stat { text-align: left; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .insights { grid-template-columns: 1fr; }
+    .method-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">tourism<span>.data</span>id</div>
+    <nav class="top">
+      <a href="#chart">Data</a>
+      <a href="#insight">Insight</a>
+      <a href="#metodologi">Metodologi</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="border-top:none;">
+    <div>
+      <h1>Memetakan sebaran destinasi wisata di 5 kota besar Indonesia</h1>
+      <p>Analisis 437 destinasi wisata di Jakarta, Bandung, Semarang, Yogyakarta, dan Surabaya — dibangun dari dataset publik untuk melihat bagaimana jenis wisata tersebar di tiap kota.</p>
+    </div>
+    <div class="hero-stat">
+      <div class="num">437</div>
+      <div class="lbl">destinasi dianalisis</div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="v">5</div><div class="k">Kota dianalisis</div></div>
+    <div class="stat"><div class="v">6</div><div class="k">Kategori wisata</div></div>
+    <div class="stat"><div class="v">126</div><div class="k">Destinasi terbanyak — Yogyakarta</div></div>
+    <div class="stat"><div class="v">135</div><div class="k">Kategori terbesar — Taman Hiburan</div></div>
+  </div>
+
+  <section id="chart">
+    <h2>Sebaran destinasi</h2>
+    <p class="section-note">Klik salah satu batang untuk lihat detail, atau ganti tampilan antara per kota dan per kategori.</p>
+    <div class="tabs">
+      <button class="tab-btn active" data-view="kota">Per Kota</button>
+      <button class="tab-btn" data-view="kategori">Per Kategori</button>
+    </div>
+    <div class="chart-card">
+      <div class="chart-canvas-wrap"><canvas id="mainChart"></canvas></div>
+      <div class="detail-line" id="detailLine">Klik salah satu batang di atas untuk melihat rinciannya.</div>
+    </div>
+  </section>
+
+  <section id="insight">
+    <h2>Insight utama</h2>
+    <div class="insights">
+      <div class="insight">
+        <h3>Taman Hiburan mendominasi</h3>
+        <p>135 dari 437 destinasi (31%) masuk kategori Taman Hiburan — jauh di atas kategori lain seperti Pusat Perbelanjaan (15) atau Tempat Ibadah (17).</p>
+      </div>
+      <div class="insight">
+        <h3>Yogyakarta &amp; Bandung memimpin</h3>
+        <p>Kedua kota ini menyumbang 250 dari 437 destinasi (57%), jauh di atas Jakarta, Semarang, dan Surabaya yang masing-masing di bawah 90 destinasi.</p>
+      </div>
+      <div class="insight">
+        <h3>Budaya &amp; alam kuat di Jawa</h3>
+        <p>Budaya (117) dan Cagar Alam (106) jadi kategori terbesar kedua dan ketiga — sejalan dengan banyaknya candi dan situs alam di Jawa Tengah &amp; DIY.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodologi">
+    <h2>Tentang project ini</h2>
+    <div class="method-list">
+      <div class="method-row">
+        <div class="m-label">Dataset</div>
+        <div class="m-val">Indonesia Tourism Destination oleh aprabowo — <a href="https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination" target="_blank" rel="noopener">Kaggle</a> (437 destinasi, 13 kolom)</div>
+      </div>
+      <div class="method-row">
+        <div class="m-label">Tools</div>
+        <div class="m-val">Power BI Desktop untuk pemodelan &amp; visualisasi, custom theme JSON untuk konsistensi warna, halaman ini untuk versi web interaktif</div>
+      </div>
+      <div class="method-row">
+        <div class="m-label">Repo &amp; file</div>
+        <div class="m-val"><a href="#" id="repoLink">Lihat kode, file .pbix, dan dataset di GitHub →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Dibuat dengan Power BI &amp; data terbuka dari Kaggle.</span>
+    <span id="year"></span>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const dataKota = {
+    labels: ['Jakarta','Bandung','Semarang','Yogyakarta','Surabaya'],
+    values: [84,124,57,126,46],
+    color: '#0F6674'
+  };
+  const dataKategori = {
+    labels: ['Bahari','Budaya','Cagar Alam','Pusat Perbelanjaan','Taman Hiburan','Tempat Ibadah'],
+    values: [47,117,106,15,135,17],
+    color: '#45C4B0'
+  };
+  const TOTAL = 437;
+
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  let currentView = 'kota';
+  let currentData = dataKota;
+
+  function buildChart(d) {
+    return new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: d.labels,
+        datasets: [{
+          data: d.values,
+          backgroundColor: d.color,
+          borderRadius: 6,
+          maxBarThickness: 46
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+        scales: {
+          x: { grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { color: '#4A5D5B' } },
+          y: { grid: { display: false }, ticks: { color: '#10312F', font: { family: 'Work Sans', size: 12 } } }
+        },
+        onClick: (evt, els) => {
+          if (!els.length) return;
+          const i = els[0].index;
+          const name = currentData.labels[i];
+          const val = currentData.values[i];
+          const pct = ((val / TOTAL) * 100).toFixed(1);
+          document.getElementById('detailLine').innerHTML =
+            '<b>' + name + '</b>: ' + val + ' destinasi — sekitar ' + pct + '% dari total 437 destinasi.';
+        }
+      }
+    });
+  }
+
+  let chart = buildChart(currentData);
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentView = btn.dataset.view;
+      currentData = currentView === 'kota' ? dataKota : dataKategori;
+      chart.destroy();
+      chart = buildChart(currentData);
+      document.getElementById('detailLine').textContent = 'Klik salah satu batang di atas untuk melihat rinciannya.';
+    });
+  });
+</script>
+</body>
+</html>
