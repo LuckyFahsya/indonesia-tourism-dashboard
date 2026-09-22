@@ -2,7 +2,7 @@
 
 Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Bandung, Semarang, Yogyakarta, Surabaya), dibangun dengan Power BI untuk melihat bagaimana jenis dan sebaran wisata terdistribusi di tiap kota.
 
-**🔗 [Lihat versi web interaktif](https://claude.ai/artifact/6fUVzasfjsesSQsnPGwv7e)**
+**🔗 [Lihat versi web interaktif]( https://luckyfahsya.github.io/indonesia-tourism-dashboard/)**
 *(ganti link ini dengan versi yang sudah kamu host sendiri di GitHub Pages, lihat bagian "Cara menjalankan" di bawah)*
 
 ---
