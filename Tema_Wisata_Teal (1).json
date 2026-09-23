@@ -1,0 +1,135 @@
+{
+  "name": "Tema Wisata Teal",
+  "dataColors": [
+    "#0F6674",
+    "#14919B",
+    "#45C4B0",
+    "#F2A65A",
+    "#E4572E",
+    "#2D3142",
+    "#8FD9CF",
+    "#A65A2E"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#252423",
+  "tableAccent": "#0F6674",
+  "good": "#45C4B0",
+  "neutral": "#F2A65A",
+  "bad": "#E4572E",
+  "maximum": "#0F6674",
+  "center": "#8FD9CF",
+  "minimum": "#F2F5F5",
+  "textClasses": {
+    "callout": {
+      "fontSize": 32,
+      "color": "#0F6674",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "title": {
+      "fontSize": 14,
+      "color": "#252423",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "header": {
+      "fontSize": 12,
+      "color": "#2D3142",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "label": {
+      "fontSize": 10,
+      "color": "#4B4B4B",
+      "fontFace": "Segoe UI"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": { "solid": { "color": "#F7F9FA" } }
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#0F6674" } },
+            "fontSize": 28,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": { "solid": { "color": "#4B4B4B" } },
+            "fontSize": 11
+          }
+        ]
+      }
+    },
+    "multiRowCard": {
+      "*": {
+        "card": [
+          {
+            "outlineColor": { "solid": { "color": "#E5EEEF" } },
+            "outlineWeight": 1,
+            "barShow": true,
+            "barColor": { "solid": { "color": "#14919B" } },
+            "barWeight": 3
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": false,
+            "rowPadding": 6
+          }
+        ],
+        "columnHeaders": [
+          {
+            "backColor": { "solid": { "color": "#0F6674" } },
+            "fontColor": { "solid": { "color": "#FFFFFF" } },
+            "fontSize": 10
+          }
+        ]
+      }
+    },
+    "barChart": {
+      "*": {
+        "labels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#252423" } },
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "columnChart": {
+      "*": {
+        "labels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#252423" } },
+            "fontSize": 9
+          }
+        ]
+      }
+    }
+  }
+}
