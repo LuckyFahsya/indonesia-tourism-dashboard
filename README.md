@@ -2,7 +2,6 @@
 
 Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Bandung, Semarang, Yogyakarta, Surabaya), dibangun dengan Power BI untuk melihat bagaimana jenis dan sebaran wisata terdistribusi di tiap kota.
 
-**🔗 [Lihat versi web interaktif]( https://luckyfahsya.github.io/indonesia-tourism-dashboard/)**
 
 
 ---
@@ -46,10 +45,9 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 
 ```
 ├── README.md
-├── dashboard.pbix              # file Power BI (isi sendiri)
+├── dashboard.pbix              # file Power BI 
 ├── Tema_Wisata_Teal.json       # custom Power BI theme
-├── dashboard.html              # versi web interaktif (portofolio)
-└── screenshots/                # tangkapan layar dashboard
+
 ```
 
 ## ▶️ Cara menjalankan
@@ -58,10 +56,7 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 1. Download `dashboard.pbix`
 2. Buka dengan Power BI Desktop (gratis di Microsoft Store)
 
-**Versi web interaktif:**
-1. File `Index.html` bersifat *self-contained* — tinggal buka langsung di browser
-2. Untuk host publik gratis lewat GitHub Pages: masuk ke **Settings → Pages** di repo ini, pilih branch `main` dan folder root, lalu akses di `https://<username>.github.io/<nama-repo>/dashboard.html`
 
 ## 🙌 Kredit
 
-Dataset oleh [aprabowo di Kaggle](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination). Dibuat oleh **[nama kamu]** sebagai bagian dari portofolio data analyst.
+Dataset oleh [aprabowo di Kaggle](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination). Dibuat oleh **[Lucky Chairul Fahsya]** sebagai bagian dari portofolio data analyst.
