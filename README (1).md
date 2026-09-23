@@ -4,7 +4,7 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 
 ### 🎬 Demo interaktif
 
-![Demo dashboard](<img width="800" height="450" alt="2026-09-2317-16-48-ezgif com-cut" src="https://github.com/user-attachments/assets/ef503688-f9a2-4636-91c0-beffc3d81d1a" />
+(<img width="800" height="450" alt="2026-09-2317-16-48-ezgif com-cut" src="https://github.com/user-attachments/assets/ef503688-f9a2-4636-91c0-beffc3d81d1a" />
 
 
 
