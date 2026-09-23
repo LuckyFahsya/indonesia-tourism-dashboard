@@ -28,7 +28,6 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 - **Power BI Desktop** — pemodelan data & pembuatan visual
 - **DAX** — pengukuran (measures) untuk KPI dan agregasi
 - **Custom theme JSON** — palet warna teal konsisten di seluruh dashboard (lihat `Tema_Wisata_Teal.json`)
-- **HTML/CSS/JS (Chart.js)** — versi web interaktif untuk portofolio
 
 ## 🖼️ Tampilan dashboard
 
