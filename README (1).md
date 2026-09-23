@@ -11,7 +11,6 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 
 )
 
-*(rekaman singkat klik-klik filter, tabel, dan peta — lihat panduan bikinnya di bagian bawah README ini)*
 
 ---
 
@@ -41,11 +40,8 @@ Dashboard analisis 437 destinasi wisata di 5 kota besar Indonesia (Jakarta, Band
 ## 🖼️ Tampilan dashboard
 
 Tambahkan screenshot dashboard kamu di sini, contoh:
+<img width="1146" height="737" alt="Screenshot 2026-09-23 054053" src="https://github.com/user-attachments/assets/84856cfc-2c4c-4964-ab62-57dbd79c5c4c" />
 
-```markdown
-![Overview](screenshots/overview.png)
-![Detail per kota](screenshots/by-city.png)
-```
 
 ## 💡 Insight utama
 
@@ -53,30 +49,6 @@ Tambahkan screenshot dashboard kamu di sini, contoh:
 - **Yogyakarta & Bandung memimpin** — kedua kota ini menyumbang 250 dari 437 destinasi (57%), jauh di atas Jakarta, Semarang, dan Surabaya.
 - **Budaya & alam kuat di Jawa** — Budaya (117) dan Cagar Alam (106) jadi kategori terbesar kedua dan ketiga, sejalan dengan banyaknya candi dan situs alam di Jawa Tengah & DIY.
 
-## 📁 Struktur repo
-
-```
-├── README.md
-├── Portofolio Power BI.pbix    # file Power BI
-├── Tema_Wisata_Teal.json       # custom Power BI theme
-└── screenshots/                # tangkapan layar dashboard
-```
-
-## ▶️ Coba sendiri (opsional)
-
-Video demo di atas sudah mencakup fitur utamanya. Kalau mau eksplor lebih dalam sendiri:
-
-1. Download `Portofolio Power BI.pbix`
-2. Buka dengan Power BI Desktop (gratis di Microsoft Store)
-3. Kalau mau pakai theme warna yang sama: **View → Themes → Browse for themes** → pilih `Tema_Wisata_Teal.json`
-
-## 🎥 Cara bikin demo GIF-nya (catatan pribadi)
-
-1. Buka Power BI Desktop, tekan `Win + G` buat buka Xbox Game Bar (bawaan Windows)
-2. Klik record, lalu klik-klik dashboard selama 10-15 detik (ganti filter, klik tabel, zoom map)
-3. Stop recording, hasilnya .mp4 otomatis tersimpan di folder *Videos > Captures*
-4. Convert ke .gif lewat [ezgif.com/video-to-gif](https://ezgif.com/video-to-gif) — upload video, compress kalau perlu (target di bawah 10MB biar cepat loading di GitHub)
-5. Simpan hasilnya sebagai `screenshots/demo.gif`
 
 ## 🙌 Kredit
 
