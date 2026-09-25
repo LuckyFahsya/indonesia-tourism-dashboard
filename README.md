@@ -52,4 +52,4 @@ Tambahkan screenshot dashboard kamu di sini, contoh:
 
 ## 🙌 Kredit
 
-Dataset oleh [aprabowo di Kaggle](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination). Dibuat oleh **[nama kamu]** sebagai bagian dari portofolio data analyst.
+Dataset oleh [aprabowo di Kaggle](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination). Dibuat oleh **[Lucky Chairul Fahsya]** sebagai bagian dari portofolio data analyst.
